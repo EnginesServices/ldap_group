@@ -15,12 +15,116 @@
         "level": "alpha",
         "patch": 0
       }
-    }
+    },
+    "timestamp": "2018-09-27T10:13:04+10:00"
   },
   "software": {
     "base": {
+      "name": "ldap_group",
+      "cardinal": "ldap",
+      "publisher_namespace": "EnginesSystem",
+      "type_path": "ldap_group",
+      "service_handle_field": "service_name",
+      "parent_image": "engines/servicebase",
+      "deployment_type": "worker",
       "default_stop_timeout": 0,
-      "restart_attempts": 0
-    }
+      "restart_attempts": 0,
+      "memory": {
+        "required": 128,
+        "recommended": 128
+      },
+      "run_as_user": "openldap",
+      "create_user": "0"
+    },
+    "disposition": {
+      "persistent": true,
+      "consumer_exportable": true
+    },
+    "constants": [
+      {
+        "name": "LDAP_HOST",
+        "value": "ldap.engines.internal"
+      }
+    ],
+    "target_environment_variables": [
+      {
+        "variable_name": "type",
+        "environment_variable_name": "group_cn"
+      }
+    ],
+    "consumers": {
+      "accepts": [
+        "ManagedEngine",
+        "ManagedService"
+      ]
+    },
+    "consumer_params": [
+      {
+        "name": "type",
+        "value": "group",
+        "mandatory": true,
+        "immutable": true,
+        "input": {
+          "type": "hidden"
+        }
+      },
+      {
+        "name": "cn",
+        "value": "_Engines_Builder(engine_name)",
+        "immutable": true,
+        "ask_at_build_time": true,
+        "input": {
+          "type": "string",
+          "title": "cn"
+        }
+      },
+      {
+        "name": "read_access",
+        "value": "all",
+        "immutable": true,
+        "ask_at_build_time": true,
+        "input": {
+          "type": "select_with_input",
+          "label": "read access",
+          "comment": "self always has read access",
+          "collection": {
+            "include_blank": true,
+            "items": {
+              "all": "by all",
+              "authenticated": "authenticated",
+              "private": "private"
+            }
+          }
+        }
+      },
+      {
+        "name": "write_access",
+        "value": "none",
+        "immutable": true,
+        "ask_at_build_time": true,
+        "input": {
+          "type": "select_with_input",
+          "label": "Write access",
+          "comment": "self and admin always has write access",
+          "collection": {
+            "include_blank": true,
+            "items": {
+              "none": "None",
+              "authenticated": "Authenticated"
+            }
+          }
+        }
+      },
+      {
+        "name": "service_name",
+        "value": "_Engines_Field(cn)__Engine_Fields(type)",
+        "mandatory": true,
+        "immutable": true,
+        "ask_at_build_time": true,
+        "input": {
+          "type": "string"
+        }
+      }
+    ]
   }
 }
