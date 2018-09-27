@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2018-09-27T10:13:04+10:00"
+    "timestamp": "2018-09-27T10:18:45+10:00"
   },
   "software": {
     "base": {
@@ -48,7 +48,7 @@
     ],
     "target_environment_variables": [
       {
-        "variable_name": "type",
+        "variable_name": "cn",
         "environment_variable_name": "group_cn"
       }
     ],
@@ -117,7 +117,7 @@
       },
       {
         "name": "service_name",
-        "value": "_Engines_Field(cn)__Engine_Fields(type)",
+        "value": "group_Engines_Field(cn)",
         "mandatory": true,
         "immutable": true,
         "ask_at_build_time": true,
