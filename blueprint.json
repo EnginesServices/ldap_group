@@ -16,11 +16,11 @@
         "patch": 0
       }
     },
-    "timestamp": "2018-09-27T10:18:45+10:00"
+    "timestamp": "2018-09-27T11:07:32+10:00"
   },
   "software": {
     "base": {
-      "name": "ldap_group",
+      "name": "ldap",
       "cardinal": "ldap",
       "publisher_namespace": "EnginesSystem",
       "type_path": "ldap_group",
