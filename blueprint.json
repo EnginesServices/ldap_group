@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2018-09-27T11:07:32+10:00"
+    "timestamp": "2019-06-25T14:11:12+10:00"
   },
   "software": {
     "base": {
@@ -44,6 +44,10 @@
       {
         "name": "LDAP_HOST",
         "value": "ldap.engines.internal"
+      },
+      {
+        "name": "backup_support",
+        "value": "true"
       }
     ],
     "target_environment_variables": [
