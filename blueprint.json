@@ -16,7 +16,7 @@
         "patch": 0
       }
     },
-    "timestamp": "2019-06-25T14:11:12+10:00"
+    "timestamp": "2020-08-28T12:15:33+10:00"
   },
   "software": {
     "base": {
@@ -127,6 +127,23 @@
         "ask_at_build_time": true,
         "input": {
           "type": "string"
+        }
+      },
+      {
+        "name": "ldap_group_type",
+        "value": "posix",
+        "mandatory": true,
+        "immutable": true,
+        "ask_at_build_time": true,
+        "input": {
+          "type": "select",
+          "collection": {
+            "items": {
+              "groupOfUniqueNames": "Group of unique names",
+              "groupOfNames": "Group of names",
+              "posix": "Posix group"
+            }
+          }
         }
       }
     ]
